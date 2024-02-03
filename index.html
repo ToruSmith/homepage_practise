@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ch32_92.html</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport"><!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"><!-- JavaScript Bundle with Popper -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js">
+	</script>
+	<style>
+	   /* 超連結不加底線 */
+	     .topic { text-decoration:none }          /* 超連結不含底線 */
+	     iframe { width:100% }                    /* 插入Google地圖 */
+	     @keyframes my-animation {
+	        0% { transform:rotateY(0deg); }
+	    25% { transform:rotateY(90deg); }
+	    50% { transform:rotateY(180deg); }
+	        75% { transform:rotateY(270deg); }
+	    100% {transform:rotateY(360deg); }
+	     }
+	     .myrotate {
+	        object-fit:fill;
+	        border:1px solid blue;
+	        position:relative;
+	        animation:my-animation 6s infinite linear;/* 炫轉特效 */
+
+	     }
+
+
+	   .asidemenu_ li {border-bottom:1px gray solid;} /*aside超連結下方的分隔線*/
+	       .asidemenu_ a {
+	        color: blue;
+	        padding: 8px;
+	        margin-bottom:2px;
+	        line-height:1.8;
+	       }                                     /* 建立超連結顏色                 */
+	       .asidemenu_ li:hover { background-color:yellow; box-shadow:gray 1px 2px 2px; }  /* 設定鼠標點到後出現黃框 */
+	       .asidemenu_ a:hover { color: brown;}  /* 設定滑鼠游標為棕色 */
+	   
+	       img.r1-image-wrap:hover {filter:opacity(60%);}       /* 設定圖片變色 */ 
+
+	/*hover_transition*/
+
+	       .view,.view2,.view3 {
+	         width: 457px;
+	         height: 255px;         
+	         border:0px solid tan;
+	         position:relative;
+	         overflow:hidden;
+	         display:block;
+	         cursor:pointer;
+	         img {
+	         position: absolute;
+	         width: 100%;
+	         height: 100%;
+	         transition: transform .2s;
+	         }
+	         &:hover img {
+	           transform:scale(1.5,1.5);
+	         }
+	       }
+
+	       .view2,.view3 {
+	         .mask {
+	           position:absolute;
+	           text-align:center;
+	           width: 100%;
+	           height: 100%;
+	           opacity: 0;
+	           background-color: rgba(102, 157, 123, 0.7);
+	         }
+	         &:hover .mask {
+	           opacity:1;
+	         }
+	       }
+	       .view3 .mask h2{
+	          margin:0; 
+	          position:absolute;
+	          width: 100%;
+	          transform:translatey(-50px);
+	          padding: 10px;
+	          background-color: rgba(255, 250, 150, 0.7);
+	          transition: all .3s ease-in-out;
+
+	       }
+
+	       .view3:hover  h2{
+	           transform:translatey(70px);
+	           opacity: 1;
+	       }
+	        .shado{
+	         color:red;
+	         background:#FFF8D7;
+	        }
+	                               
+	</style>
+</head>
+<body>
+	<!-- 設計頁首區 header -->
+	<header style="height:50px">
+		<nav class="navbar navbar-expand-md navbar-light bg-light bg-gradient fixed-top">
+			<div class="container-fluid m-3">
+				<a class="navbar-brand" href="#"><img alt="紅葉的相片" src="https://yamagatakanko.com/lsc/upfile/theme/0000/0011/11_401_m.jpg" width="40"></a> <a class="navbar-brand" href="#">紅葉鼠的家</a> <button class="navbar-toggler" data-bs-target="#navitem" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse" id="navitem">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item dropdown">
+							<button class="btn btn-outline-warning nav-link dropdown-toggle" data-bs-toggle="dropdown" type="button">導覽</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">關於作者</a> <a class="dropdown-item" href="#">youtube頻道</a> <a class="dropdown-item" href="#">Twitter</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<button class="btn btn-outline-warning nav-link dropdown-toggle" data-bs-toggle="dropdown" type="button">日常漣漪</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">學習</a> <a class="dropdown-item" href="#">娛樂</a> <a class="dropdown-item" href="#">運動心得</a><a class="dropdown-item" href="#">歷史考究</a>
+							</div>
+						</li>
+					</ul>
+					<form class="d-flex">
+						<input class="form-control me-2" placeholder="文章關鍵字搜尋" type="search"> <button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</header><!-- 主題項目的超連結  -->
+	<br>
+	<article>
+		<div class="container">
+			<h1 class="mt-5">每週熱門主題 <span class="badge rounded-pill bg-primary">New</span></h1>
+			<h5><a class="topic" href="#">工作術-自我管理學</a>、 <a class="topic" href="#">Ststistics</a>、 <a class="topic" href="#">Deep Learning</a>、 <a class="topic" href="#">程式語言</a>、 <a class="topic" href="#">日文唱歌</a></h5>
+		</div>
+		<hr>
+	</article><!-- 設計內容區 -->
+	<article class="container">
+		<article class="row">
+			<!-- 主題 -->
+			<!-- 訊息 -->
+			<div class="col-md-7">
+				<div class="container">
+					<div class="alert alert-primary mt-2" role="alert">
+						<div class="spinner-grow text-primary"></div><a class="alert-link" href="#"><strong>4月適合去那些國家？ 專業導覽-灰貓旅行社良心推薦  </strong></a> 2024出國必去景點推薦，趁解封趕快出去玩喔!
+					</div>
+				</div><!-- 設計內容輪撥區 -->
+				<div class="container">
+					<div class="carousel slide" data-bs-ride="carousel" id="demo">
+						<ul class="carousel-indicators">
+							<li class="active" data-bs-slide-to="0" data-bs-target="#demo"></li>
+							<li aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#demo"></li>
+							<li aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#demo"></li>
+						</ul>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img alt="日本大阪/京都" class="d-block w-100 r1-image-wrap" src="https://www.kkday.com/zh-tw/blog/wp-content/uploads/batch_Japan_Kyoto_Arashiyama_Ashutterstock_527893747.jpg">
+								<div class="carousel-caption">
+									<h4><strong>日本大阪/京都</strong></h4>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img alt="紐西蘭南島" class="d-block w-100 r1-image-wrap" src="https://www.kkday.com/zh-tw/blog/wp-content/uploads/batch_shutterstock_155246192.jpg">
+								<div class="carousel-caption">
+									<h4><strong>紐西蘭南島</strong></h4>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img alt="韓國釜山" class="d-block w-100 r1-image-wrap" src="https://www.kkday.com/zh-tw/blog/wp-content/uploads/batch_Korea_Festival_Busan-Fireworks-Festival_Ashutterstock_500907673-1.jpg">
+								<div class="carousel-caption">
+									<h4><strong>韓國釜山</strong></h4>
+								</div>
+							</div>
+						</div><a class="carousel-control-prev" data-bs-slide="prev" href="#demo"><span class="carousel-control-prev-icon"></span> <span class="visually-hidden">Previous</span></a> <a class="carousel-control-next" data-bs-slide="next" href="#demo"><span class="carousel-control-next-icon"></span> <span class="visually-hidden">Next</span></a>
+					</div>
+				</div><!-- 設計特價訊息 -->
+				<div class="container">
+					<div class="alert alert-info mt-3" role="alert">
+						<div class="spinner-border text-success"></div><a class="alert-link" href="#"><strong>2月30日在新竹巨蛋，知名偶像小林桑-出道公開演唱會!!? </strong></a> 現在購買門票還送圖書禮卷噢!
+					</div>
+				</div><!-- 畫布-->
+				<div class="container">
+					<!-- 左按鈕-->
+					 <button aria-controls="offcanvasExample" class="btn btn-primary" data-bs-target="#offcanvasExample" data-bs-toggle="offcanvas" type="button">【訂閱】交個朋友</button> <!-- 右按鈕-->
+					 <button aria-controls="offcanvasWithBothOptions" class="btn btn-primary" data-bs-target="#offcanvasWithBothOptions" data-bs-toggle="offcanvas" type="button">其他相關資訊</button><!-- 左-->
+					<div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="offcanvasExample" tabindex="-1">
+						<div class="offcanvas-header">
+							<h5 class="offcanvas-title" id="offcanvasExampleLabel">訂閱方式</h5><button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
+						</div>
+						<div class="offcanvas-body">
+							<div>
+								Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+							</div>
+							<div class="dropdown mt-3">
+								<button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" id="dropdownMenuButton" type="button">想如何認識葉鼠</button>
+								<ul aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+									<li>
+										<a class="dropdown-item" href="#">透過 Email</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">逛逛葉鼠的Notion</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">訂閱youtube</a>
+									</li>
+								</ul>
+							</div><br>
+							<div class="container">
+								<h3>會員登入</h3>
+								<form>
+									<div class="mb-3">
+										<!-- mb-3上下間距設定可以參考32-9節 -->
+										<label class="form-label" for="useraccount">帳號</label> <input class="form-control" id="userid" placeholder="請輸入帳號 :" type="text">
+										<div class="form-text" id="accountHelp">
+											您的資料將不會做其他用途
+										</div>
+									</div>
+									<div class="mb-3">
+										<label class="form-label" for="userpwd">密碼</label> <input class="form-control" id="userpwd" placeholder="請輸入密碼" type="password">
+									</div><button class="btn btn-primary" type="login">登入</button>
+								</form>
+							</div><br>
+							<div class="container">
+								<h3>留言</h3>
+								<form>
+									<label class="form-lable" for="msg">請輸入留言:</label> 
+									<textarea class="form-control" id="msg" name="text" rows="3"></textarea> <button class="btn btn-primary mt-3" type="login">送出</button>
+								</form>
+							</div><br>
+							<div class="container">
+								<h4>請選擇最喜歡的運動</h4>
+								<form action="/action_page.php">
+									<div class="form-check-inline">
+										<label class="form-check-label" for="nba"><input class="form-check-input" id="nba" name="sport" type="radio"> NBA籃球</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label" for="mlb"><input class="form-check-input" id="mlb" name="sport" type="radio"> MLB棒球</label>
+									</div>
+									<div class="form-check-inline">
+										<label class="form-check-label" for="nfl"><input class="form-check-input" id="nfl" name="sport" type="radio"> NFL美式足球</label>
+									</div><button class="btn btn-primary" type="login">送出</button>
+								</form>
+							</div><br>
+						</div>
+					</div><!-- 右-->
+					<div aria-labelledby="offcanvasWithBothOptionsLabel" class="offcanvas offcanvas-end" data-bs-scroll="true" id="offcanvasWithBothOptions" tabindex="-1">
+						<div class="offcanvas-header">
+							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">側邊資訊</h5><button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
+						</div>
+						<div class="offcanvas-body">
+							<p>Try scrolling the rest of the page to see this option in action.</p><br>
+							<div class="container">
+								<h4>訪客教育程度</h4>
+								<form action="/action_page.php">
+									<div>
+										<label for="sel">請選擇學歷</label> <select class="form-select" id="sel" name="education">
+											<option>
+												博士
+											</option>
+											<option>
+												碩士
+											</option>
+											<option>
+												大學
+											</option>
+											<option>
+												專科
+											</option>
+											<option>
+												高中或以下
+											</option>
+										</select>
+									</div><button class="btn btn-primary mt-3" type="login">送出</button>
+								</form>
+							</div><br>
+							<div class="container">
+								<h3>河川考察</h3>
+								<table class="table">
+									<thead class="table-dark">
+										<tr>
+											<th>名稱</th>
+											<th>國家</th>
+											<th>洲別</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>長江</td>
+											<td>中國</td>
+											<td>亞洲</td>
+										</tr>
+										<tr>
+											<td>尼羅河</td>
+											<td>埃及</td>
+											<td>非洲</td>
+										</tr>
+										<tr>
+											<td>亞馬遜河</td>
+											<td>巴西</td>
+											<td>南美洲</td>
+										</tr>
+									</tbody>
+								</table><br>
+								<table class="table">
+									<thead class="table-light">
+										<tr>
+											<th>名稱</th>
+											<th>國家</th>
+											<th>洲別</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>長江</td>
+											<td>中國</td>
+											<td>亞洲</td>
+										</tr>
+										<tr>
+											<td>尼羅河</td>
+											<td>埃及</td>
+											<td>非洲</td>
+										</tr>
+										<tr>
+											<td>亞馬遜河</td>
+											<td>巴西</td>
+											<td>南美洲</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><br>
+							<div class="container">
+								<h3>勘查地點</h3>
+								<div class="card text-primary bg-light mb-4">
+									<div class="card-header">
+										google地圖
+									</div>
+									<div class="card-body">
+										<iframe allowfullscreen height="300" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.325415968391!2d121.6997228753784!3d25.090843477779647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d5239ecfdb34f%3A0x50b1eca2d37d424c!2z5YWt5aC15Luj5aSp5bqc!5e0!3m2!1szh-TW!2stw!4v1704897798001!5m2!1szh-TW!2stw" style="border:0;" width="300"></iframe>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+			<!-- 討論會側邊攔 -->
+			<aside class="col-md-4 offset-md-1">
+				<!-- 第1張卡片 -->
+				<div class="card text-danger bg-light mb-4">
+					<div class="card-header">
+						<strong>關於紅葉鼠</strong>
+					</div><img alt="book" class="card-img-top myrotate" src="https://www.english4u.net/siteimg/images/Jolin/A%2B%202020-Jolin/07mth----/0918%20Photo%20by%20alex%20lauzon%20on%20Unsplash-2.jpg">
+					<div class="card-body">
+						<p class="card-text">29歲但仍是中二病，希望可以學習更多知識並且活用，最近悟得「練習」的重要性，開始使琢磨其他可能性。近況的話 ~ 應該在理財下多點功夫，注意停損。</p>
+					</div>
+				</div><!-- 第2張卡片 -->
+				<div class="card text-info bg-light mb-4">
+					<div class="card-header asidetitle">
+						<strong>其他筆記連結窗口</strong>
+					</div>
+					<div class="card-body asidemenu_">
+						<ul>
+							<li>
+								<a class="topic" href="https://www.notion.so/Python-e5a466a970d3435e9abc3f8e75472820?pvs=4">python學習筆記</a>
+							</li>
+							<li>
+								<a class="topic" href="https://www.notion.so/e7d33cebd40e4572b3e6fb2096b9def3?pvs=4">日文學習筆記</a>
+							</li>
+							<li>
+								<a class="topic" href="https://www.notion.so/Stable-Diffusion-2b0a4792a05c49cf989283ab921c85bb?pvs=4">AI繪圖筆記-Stable diffusion、環境安裝</a>
+							</li>
+							<li>
+								<a class="topic" href="#">MMD與CM3D2分享</a>
+							</li>
+							<li>
+								<a class="topic" href="#">練習AE製片、MAD分享</a>
+							</li>
+							<li>
+								<a class="topic" href="https://www.notion.so/Statistic-1bca146c52f64b06935407b695a5ee98?pvs=4">Statistics、Data Mining相關心得</a>
+							</li>
+							<li>
+								<a class="topic" href="https://www.notion.so/R-494fca724f854370936467c23b4f1ed4?pvs=4">R語言學習和繪圖心得</a>
+							</li>
+							<li>
+								<a class="topic" href="#">下棋(象棋、西洋棋、日本將棋)</a>
+							</li>
+							<li>
+								<a class="topic" href="https://www.notion.so/LINE-BOT-8a8bc2ec05074f6ab41b60436ff3fb5a?pvs=4">line bot機器人製作心得(雲端、備份data用、問卷)</a>
+							</li>
+							<li>
+								<a class="topic" href="https://www.notion.so/ML-and-DL-474d603c29cc45b199cf6afb0a874b2f?pvs=4">ML、DL相關心得</a>
+							</li>
+                                                        <li>
+								<a class="topic" href="https://www.notion.so/50ea28a855c447339a66057d285f1ffe?pvs=4">Notion 操作實用分享 </a>
+							</li>
+							<li>
+								<a class="topic" href="https://www.notion.so/50ea28a855c447339a66057d285f1ffe?pvs=4">日常隨筆</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<h1 class="text-center">IT人資訊-近期重要演說</h1>
+			<hr>
+			<div class="col-md-8">
+				<img alt="book" class="img-fluid" src="https://www.nvidia.com/content/dam/en-zz/Solutions/gtc/social-image/gtc24-spring-web-keynote-page-og-2888575-op2.jpg">
+				<h4 class="text-primary mt-2">NVIDIA 執行長黃仁勳主題演講| GTC 2024</h4>
+                                <hr>
+				<p class="card-text">★ 演說人 : 黃仁勳</p><p class="card-text">★ 活動時間 : 2024/3/18 - 2024/3/21</p><p class="card-text">★ 地點: 聖荷西會議中心</p><a class="btn btn-primary" href="https://www.nvidia.com/zh-tw/gtc/keynote/">相關資訊</a>
+                                <br><br>
+
+				<img alt="book" class="img-fluid" src="https://storage.googleapis.com/futurecity-cms-cwg-tw/article/202309/article-6513c83e6e05c.jpg">
+				<h4 class="text-primary mt-2">Open AI 創辦人Sam Altman出席永齡基金會、天下雜誌合辦的「AI大師論壇」</h4>
+                                <hr>
+				<p class="card-text">★ 演說人 : Sam Altman</p><p class="card-text">★ 活動時間 : 2023/3/25 </p><p class="card-text">★ 地點: 台北南港展覽館2館</p><a class="btn btn-primary" href="https://futurecity.cw.com.tw/article/3233">相關資訊</a>
+                                <br>
+
+                                <img alt="book" class="img-fluid mt-2" src="https://img.digitimes.com/newsimg/2023/0626/667185-1-u4lc1.jpg">
+				<h4 class="text-primary mt-2">國際知名Java大神Josh Long來台 偉康科技舉辦技術分享活動</h4>
+                                <hr>
+				<p class="card-text">★ 演說人 : Josh Long</p><p class="card-text">★ 活動時間 : 2023/6/15 - 2023/6/16</p><p class="card-text">★ 地點: Star C-C.C.Work 兆基商務中心和平館</p><a class="btn btn-primary" href="https://www.thehubnews.net/archives/240263">相關資訊</a>
+			</div>
+		</article>
+	</article><!--=======================================================================================================================================-->
+	<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<article>
+		<div class="container" style="margin-top:60px">
+			<h1 class="text-center">想成為資料科學人? 推薦小白的書單</h1><!-- 機器學習著作 -->
+			<hr>
+			<div class="row">
+				<div class="col-md-7">
+					<h2>機器學習 <small>(基礎數學篇)</small></h2>
+					<p>洪老師在徹底研究機器學習後，體會許多基礎數學不是不會與艱難而是生疏了，如果機器學習的書籍可以將複雜公式從基礎開始一步一步推導，其實可以很容易帶領讀者進入這個領域，同時感受數學不再如此艱澀，這也是老師撰寫本書時時提醒自己要留意的事項。</p>
+				</div>
+				<div class="col-md-5 view3">
+					<img class="img-fluid" src="https://jason-chen-1992.weebly.com/uploads/1/0/8/5/108557741/introduction-to-machine-learning-cover_orig.png">
+					<div class="mask">
+						<h2><a href="https://jason-chen-1992.weebly.com/" style="text-decoration:none;">了解更多</a></h2>
+					</div>
+				</div>
+			</div><!-- Python著作 -->
+			<hr>
+			<div class="row">
+				<div class="col-md-7 order-md-2">
+					<h2>Python最強入門 <small>(王者歸來)</small></h2>
+					<p>洪老師在這本書也是目前市面上講解Python書籍中語法最完整、應用範圍最廣、範例最豐富的書籍。整本書從Python風格說起，拋棄C、C++、Java思維，將Python語法、內涵與精神功能火力全開，完全融入矽谷頂尖Python工程師的邏輯與設計風格。至30%左右。</p>
+				</div>
+				<div class="col-md-5 order-md-1"><img class="img-fluid" src="https://cdn1.kingstone.com.tw/book/images/product/20131/2013120635623/2013120635623-01.jpg"></div>
+			</div>
+		</div>
+	</article><!-- 設計內容區 -->
+	<br>
+	<br>
+	<br>
+	<article>
+		<h1 class="text-center">最近<span class="shado">葉鼠君</span>在看什麼</h1>
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card">
+						<img alt="book" class="card-img-top" src="https://s2.eslite.dev/unsafe/fit-in/x900/s.eslite.dev/Upload/Product/201101/o/634298137950365000.jpg">
+						<div class="card-body">
+							<h4 class="card-title text-primary">每天懂一點人情世故</h4>
+							<p class="card-text">書本作者: 章岩</p><a class="btn btn-primary" href="https://www.eslite.com/product/1001257012003144">購書連結</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<img alt="book" class="card-img-top" src="https://www.iread.com.tw/ProductFile/T0000400/B000724326/B000724326-B.jpg">
+						<div class="card-body">
+							<h4 class="card-title text-primary">日本頂尖執事教你察言觀色的28堂課</h4>
+							<p class="card-text">書本作者:  新井直之</p><a class="btn btn-primary" href="https://www.iread.com.tw/Detail/ProdDetail/B000724326">購書連結</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card">
+						<img alt="book" class="card-img-top" src="https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/072/95/0010729574.jpg">
+						<div class="card-body">
+							<h4 class="card-title text-primary">成為有趣人的55條說話公式</h4>
+							<p class="card-text">書本作者:  吉田照幸 </p><a class="btn btn-primary" href="https://www.books.com.tw/products/0010729574?sloc=main">購書連結</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article><!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+	<!--========================================================================================================================================-->
+	<!-- 設計頁尾區footer -->
+	<footer>
+		<div class="container">
+			<hr>
+			<p>© 2024 ALL RIGHTS RESERVED. 本網站由 <a href="https://www.google.com/" target="_blank">Toru Smith</a> 建置維護</p>
+		</div>
+	</footer>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.5/sakura.js"></script>
+</html>
