@@ -211,7 +211,7 @@
 							</div><br>
 							<div class="container">
 								<h3>會員登入</h3>
-								<form>
+								<form  id="loginForm">
 									<div class="mb-3">
 										<!-- mb-3上下間距設定可以參考32-9節 -->
 										<label class="form-label" for="useraccount">帳號</label> <input class="form-control" id="userid" placeholder="請輸入帳號 :" type="text">
@@ -221,8 +221,23 @@
 									</div>
 									<div class="mb-3">
 										<label class="form-label" for="userpwd">密碼</label> <input class="form-control" id="userpwd" placeholder="請輸入密碼" type="password">
-									</div><button class="btn btn-primary" type="login">登入</button>
+									</div><button class="btn btn-primary" type="button" onclick="login()">登入</button>
 								</form>
+								<script>
+								  function login() {
+								    // 假設你需要檢查帳號和密碼
+								    const userid = document.getElementById("userid").value;
+								    const userpwd = document.getElementById("userpwd").value;
+								
+								    if (userid && userpwd) {
+								      // 登入成功後跳轉
+								      window.location.href = "login-form.html";
+								    } else {
+								      alert("請輸入帳號和密碼");
+								    }
+								  }
+								</script>
+
 							</div><br>
 							<div class="container">
 								<h3>留言</h3>
