@@ -185,8 +185,14 @@
 				</div><!-- 畫布-->
 				<div class="container">
 					<!-- 左按鈕-->
-					 <button aria-controls="offcanvasExample" class="btn btn-primary" data-bs-target="#offcanvasExample" data-bs-toggle="offcanvas" type="button">【訂閱】交個朋友</button> <!-- 右按鈕-->
-					 <button aria-controls="offcanvasWithBothOptions" class="btn btn-primary" data-bs-target="#offcanvasWithBothOptions" data-bs-toggle="offcanvas" type="button">其他相關資訊</button><!-- 左-->
+					 <button aria-controls="offcanvasExample" class="btn btn-primary" data-bs-target="#offcanvasExample" data-bs-toggle="offcanvas" type="button">【訂閱】交個朋友</button> 
+					<!-- 右按鈕-->
+					 <button aria-controls="offcanvasWithBothOptions" class="btn btn-primary" data-bs-target="#offcanvasWithBothOptions" data-bs-toggle="offcanvas" type="button">其他相關資訊</button>
+					<!--== 下按鈕==-->
+					<br>
+					<button aria-controls="offcanvasBottom" class="btn btn-danger" data-bs-target="#offcanvasBottom" data-bs-toggle="offcanvas" type="button">每日占卜</button>
+					
+					<!-- 左-->
 					<div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="offcanvasExample" tabindex="-1">
 						<div class="offcanvas-header">
 							<h5 class="offcanvas-title" id="offcanvasExampleLabel">訂閱方式</h5><button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
@@ -261,7 +267,9 @@
 								</form>
 							</div><br>
 						</div>
-					</div><!-- 右-->
+					</div>
+					
+					<!-- 右-->
 					<div aria-labelledby="offcanvasWithBothOptionsLabel" class="offcanvas offcanvas-end" data-bs-scroll="true" id="offcanvasWithBothOptions" tabindex="-1">
 						<div class="offcanvas-header">
 							<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">側邊資訊</h5><button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
@@ -359,7 +367,139 @@
 								</div>
 							</div>
 						</div>
+                                     <!--== 下-占卜==-->
+					<div aria-labelledby="offcanvasBottomLabel" class="offcanvas offcanvas-bottom" id="offcanvasBottom" style=" height: 90%; width: 900px;" tabindex="-1">
+						<div class="offcanvas-header">
+							<h5 class="offcanvas-title" id="offcanvasBottomLabel">掐指一算</h5><button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
+						</div>
+						<div class="offcanvas-body3 small">
+							<style>
+							         .card-body3 {
+							             font-family: Arial, sans-serif;
+							             text-align: center;
+							             background-color: #f0f0f0;
+							             padding: 20px;
+							         }
+							         #card-container {
+							             margin-top: 20px;
+							         }
+							         #card {
+							             width: 200px;
+							             height: 300px;
+							             border: 1px solid #000;
+							             margin: 0 auto;
+							             background-color: #fff;
+							             display: flex;
+							             justify-content: center;
+							             align-items: center;
+							             font-size: 18px;
+							             font-weight: bold;
+							         }
+							         #explanation {
+							             margin-top: 20px;
+							             max-width: 600px;
+							             margin-left: auto;
+							             margin-right: auto;
+							             text-align: left;
+							         }
+							         button {
+							             margin-top: 20px;
+							             padding: 10px 20px;
+							             font-size: 16px;
+							         }
+							         .offcanvas-body3 {
+							             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Milky_way_-_southern_hemisphere.jpg/1280px-Milky_way_-_southern_hemisphere.jpg'); /* 替換為你的圖片路徑 */
+							             background-size: cover; /* 確保圖片覆蓋整個區域 */
+							             background-position: center; /* 使圖片居中顯示 */
+							             background-repeat: no-repeat; /* 防止圖片重複 */
+							             height: 100%; /* 使其填滿父元素 */
+							             padding: 20px; /* 調整內邊距 */
+							             box-sizing: border-box; /* 包含內邊距和邊框在內部 */
+
+							         }       
+
+							</style>
+							<div class="card-body3">
+								<h1>托特塔羅抽卡測驗</h1>
+								<div id="card-container">
+									<div id="card">
+										點擊抽卡按鈕開始
+									</div>
+								</div><button onclick="drawCard()">抽卡</button> <button onclick="resetCard()">重置</button>
+								<div id="explanation"></div>
+								<script>
+								        const cardExplanations = {
+								            "愚者": "代表新的開始、冒險、自由和無限可能。提醒您保持開放的心態，勇於嘗試新事物。",
+								            "魔術師": "象徵創造力、技能和意志力。暗示您擁有實現目標的所有工具，只需要付諸行動。",
+								            "女祭司": "代表直覺、內在智慧和潛意識。建議您信任自己的感覺，聆聽內心的聲音。",
+								            "女皇": "象徵豐饒、感性和創造力。提醒您關注自己的情感需求，享受生活的美好。",
+								            "皇帝": "代表權威、結構和控制。暗示您需要建立秩序，或者面對生活中的權威人物。",
+								            "教皇": "象徵精神指引、傳統和信仰。建議您尋求指導或遵循傳統價值觀。",
+								            "戀人": "代表選擇、和諧和人際關係。提醒您關注重要的關係，或面臨重要的決定。",
+								            "戰車": "象徵意志力、決心和勝利。鼓勵您堅持自己的目標，克服障礙。",
+								            "力量": "代表內在力量、勇氣和自信。提醒您相信自己有能力應對挑戰。",
+								            "隱者": "象徵內省、獨處和智慧。建議您花時間獨處，尋找內心的答案。",
+								            "命運之輪": "代表變化、機會和命運。提醒您生活中的起起落落，接受改變。",
+								            "正義": "象徵公平、平衡和誠實。鼓勵您做出公正的決定，保持誠實。",
+								            "吊人": "代表犧牲、新視角和放下。建議您換個角度看問題，或者放下某些東西。",
+								            "死神": "象徵結束、變化和轉型。提醒您某些事物需要結束，以便新的開始。",
+								            "節制": "代表平衡、調和和耐心。鼓勵您在生活中尋找平衡，保持耐心。",
+								            "魔鬼": "象徵誘惑、執著和物質主義。提醒您注意自己的慾望和依戀。",
+								            "高塔": "代表突然的變化、崩塌和啟示。暗示您可能面臨意外的改變或頓悟。",
+								            "星星": "象徵希望、靈感和更新。鼓勵您保持樂觀，相信美好的未來。",
+								            "月亮": "代表直覺、幻想和恐懼。提醒您面對內心的恐懼，相信自己的直覺。",
+								            "太陽": "象徵快樂、活力和成功。預示著積極的結果和喜悅的時光。",
+								            "審判": "代表重生、覺醒和內在呼喚。鼓勵您聆聽內心的聲音，作出重要決定。",
+								            "世界": "象徵完成、統一和成就。代表一個週期的結束和新週期的開始。"
+								        };
+								        const cardColors = {
+								            "愚者": "#ff0000",  // Red
+								            "魔術師": "#00ff00",  // Green
+								            "女祭司": "#0000ff",  // Blue
+								            "女皇": "#ff00ff",  // Magenta
+								            "皇帝": "#ff9900",  // Orange
+								            "教皇": "#3399ff",  // Light Blue
+								            "戀人": "#ff3333",  // Dark Red
+								            "戰車": "#00cc99",  // Teal
+								            "力量": "#ffcc00",  // Yellow
+								            "隱者": "#663399",  // Purple
+								            "命運之輪": "#66ccff",  // Light Cyan
+								            "正義": "#ff66cc",  // Light Pink
+								            "吊人": "#ff9933",  // Orange
+								            "死神": "#6666ff",  // Dark Blue
+								            "節制": "#ccff99",  // Light Green
+								            "魔鬼": "#ff6666",  // Light Red
+								            "高塔": "#ff3333",  // Red
+								            "星星": "#99ccff",  // Light Blue
+								            "月亮": "#9966ff",  // Purple
+								            "太陽": "#ffcc00",  // Yellow
+								            "審判": "#ff6600",  // Orange
+								            "世界": "#66cc66"  // Green
+								        };
+
+								        function drawCard() {
+								            const cardElement = document.getElementById('card');
+								            const explanationElement = document.getElementById('explanation');
+								            const cards = Object.keys(cardExplanations);
+								            const randomCard = cards[Math.floor(Math.random() * cards.length)];
+								            
+								            <!----原始: cardElement.textContent = randomCard;---->
+								            cardElement.innerHTML = `<span style="color: ${cardColors[randomCard]}">${randomCard}<\/span>`;
+								            explanationElement.innerHTML = `<h3>${randomCard}牌的含義：<\/h3><p>${cardExplanations[randomCard]}<\/p>`;
+								        }
+
+								        function resetCard() {
+								            const cardElement = document.getElementById('card');
+								            const explanationElement = document.getElementById('explanation');
+
+								            cardElement.textContent = '點擊抽卡按鈕開始';
+								            explanationElement.innerHTML = '';
+								        }
+								</script>
+							</div>
+						</div>
 					</div>
+					<!--=================-->
 				</div>
 			</div><!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 			<!-- 討論會側邊攔 -->
